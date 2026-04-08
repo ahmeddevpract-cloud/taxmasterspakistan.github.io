@@ -6,7 +6,6 @@
 <title>TaxMasters Pakistan</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://unpkg.com/scrollreveal"></script>
 </head>
@@ -15,8 +14,9 @@
 
 <header class="navbar">
   <h1 class="logo">TaxMasters</h1>
-  <div id="menu-toggle"><i class="ri-menu-line"></i></div>
-  <ul id="nav-links">
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="how.html">How It Works</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -25,21 +25,43 @@
 
 <section class="hero">
   <h2>Your Taxes, Our Expertise</h2>
-  <p>Professional taxation services for individuals, businesses, and freelancers across Pakistan.</p>
+  <p>
+    TaxMasters Pakistan delivers reliable, confidential, and fully compliant taxation services.
+    We help individuals, businesses, and freelancers manage their tax responsibilities efficiently.
+  </p>
   <button onclick="scrollToSection('services')">Explore Services</button>
 </section>
 
 <section id="services" class="section">
-  <h2>Our Services</h2>
+  <h2 class="section-title">Our Services</h2>
+
   <div class="grid">
-    <div class="card"><i class="ri-user-line"></i><h3>Salaried</h3></div>
-    <div class="card"><i class="ri-briefcase-line"></i><h3>Business</h3></div>
-    <div class="card"><i class="ri-code-line"></i><h3>Freelancers</h3></div>
-    <div class="card"><i class="ri-building-line"></i><h3>Company Registration</h3></div>
+    <div class="card"><h3>Salaried Individuals</h3></div>
+    <div class="card"><h3>Business Owners</h3></div>
+    <div class="card"><h3>Freelancers</h3></div>
+    <div class="card"><h3>Company Registration</h3></div>
   </div>
 </section>
 
-<footer>© 2026 TaxMasters Pakistan</footer>
+<section class="section">
+  <h2 class="section-title">Why Choose Us</h2>
+
+  <div class="grid">
+    <div class="card">Professionalism</div>
+    <div class="card">Confidentiality</div>
+    <div class="card">On-time Work</div>
+    <div class="card">Annual Reminders</div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Need Help With Taxes?</h2>
+  <a href="contact.html">Contact Us</a>
+</section>
+
+<footer>
+  <p>© 2026 TaxMasters Pakistan</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
