@@ -1,0 +1,117 @@
+:root {
+  --orange: #ff7a00;
+  --black: #0d0d0d;
+  --card: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--black);
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: black;
+}
+
+.logo { color: var(--orange); }
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: var(--orange);
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+button, .btn-secondary {
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+button {
+  background: var(--orange);
+  border: none;
+}
+
+.btn-secondary {
+  border: 1px solid var(--orange);
+  color: var(--orange);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.feature {
+  background: var(--card);
+  padding: 20px;
+  text-align: center;
+}
+
+.steps {
+  display: grid;
+  gap: 20px;
+}
+
+.step {
+  background: var(--card);
+  padding: 20px;
+  border-left: 4px solid var(--orange);
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--orange);
+  padding: 15px;
+  border-radius: 50%;
+}
+
+@media(max-width:768px){
+  .menu-toggle { display:block; }
+
+  .nav-links {
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:60px;
+    right:0;
+    background:black;
+  }
+
+  .nav-links.active { display:flex; }
+}
