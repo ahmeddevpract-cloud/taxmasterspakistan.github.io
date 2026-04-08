@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact TaxMasters Pakistan — Reach us via phone, WhatsApp, or email for expert tax filing services." />
+  <title>Contact Us — TaxMasters Pakistan</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <style>
+    /* WhatsApp button pulse */
+    @keyframes waPulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    .whatsapp-btn {
+      background: #25d366 !important;
+      animation: waPulse 2.5s infinite;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5a !important;
+      filter: brightness(1.05);
+    }
+
+    .phone-btn {
+      background: var(--orange) !important;
+    }
+
+    .email-btn {
+      background: #4a90d9 !important;
+    }
+
+    .email-btn:hover { background: #3a7fc1 !important; }
+
+    .contact-section { background: var(--charcoal-mid); }
+
+    /* Map placeholder */
+    .location-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .location-inner {
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .location-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .location-info p {
+      font-family: var(--font-text);
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .availability-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .avail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.55rem 0.8rem;
+      background: rgba(244,124,32,0.06);
+      border-radius: 6px;
+      font-size: 0.82rem;
+    }
+
+    .avail-item .day { color: var(--muted); font-weight: 500; }
+    .avail-item .time { color: var(--orange); font-weight: 700; }
+
+    .online-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(40,167,69,0.12);
+      border: 1px solid rgba(40,167,69,0.25);
+      color: #4caf70;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .online-dot {
+      width: 6px; height: 6px;
+      background: #4caf70;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @media (max-width: 640px) {
+      .location-inner { grid-template-columns: 1fr; }
+    }
+
+    /* FAQ */
+    .faq-section { background: var(--charcoal); }
+
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .faq-item.open { border-color: rgba(244,124,32,0.3); }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      gap: 1rem;
+    }
+
+    .faq-question span {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--off-white);
+    }
+
+    .faq-arrow {
+      color: var(--orange);
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 200px; }
+
+    .faq-answer p {
+      padding: 0 1.5rem 1.25rem;
+      font-family: var(--font-text);
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="TaxMasters Pakistan Logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how.html">How It Works</a></li>
+      <li><a href="contact.html" class="active nav-cta">Get Started</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="how.html">How It Works</a>
+    <a href="contact.html" class="nav-cta">Get Started →</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <div class="contact-hero">
+    <div class="online-badge">
+      <span class="online-dot"></span>
+      We're Currently Available
+    </div>
+    <h1>LET'S <span class="highlight">TALK TAXES</span></h1>
+    <p>Whether you have a question, need a quote, or are ready to get started — we're here. Reach out on any channel and we'll respond fast.</p>
+  </div>
+
+  <!-- ===== CONTACT CARDS ===== -->
+  <section class="contact-section">
+    <div class="contact-grid reveal" style="max-width: 900px; margin: 0 auto;">
+
+      <div class="contact-card">
+        <div class="contact-card-icon">📞</div>
+        <h3>Phone</h3>
+        <div class="contact-value">+92 327 5027898</div>
+        <div class="contact-desc">Call us directly to discuss your tax situation. Our professionals are ready to answer your questions and walk you through the right service for your needs.</div>
+        <a href="tel:+923275027898" class="btn phone-btn" style="background: var(--orange); color: white; width:100%; justify-content:center;">
+          📞 Call Now
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <h3>Email</h3>
+        <div class="contact-value">taxmasterscsb@gmail.com</div>
+        <div class="contact-desc">Prefer to write it out? Send us a detailed email with your requirements. We review every message carefully and respond with a clear, professional plan.</div>
+        <a href="mailto:taxmasterscsb@gmail.com" class="btn email-btn" style="background: #4a90d9; color: white; width:100%; justify-content:center;">
+          ✉️ Send Email
+        </a>
+      </div>
+
+      <div class="contact-card wide whatsapp-card">
+        <div class="contact-card-icon" style="background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.25);">💬</div>
+        <h3>WhatsApp — Fastest Response</h3>
+        <div class="contact-value">+92 327 5027898</div>
+        <div class="contact-desc">WhatsApp is our fastest channel. Send us your documents, ask quick questions, or start the onboarding process — all on the world's most convenient messaging platform. Most messages are answered within minutes during business hours.</div>
+        <a href="https://wa.me/923275027898?text=Hello%20TaxMasters!%20I%20need%20help%20with%20my%20taxes." target="_blank" rel="noopener" class="btn whatsapp-btn" style="color: white; width: 100%; max-width: 380px; margin: 0 auto; justify-content: center; font-size: 0.9rem;">
+          💬 Message on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== AVAILABILITY ===== -->
+  <section style="background: var(--charcoal); padding: 80px 5%;">
+    <div class="location-card reveal">
+      <div class="location-inner">
+        <div class="location-info">
+          <h3>OUR AVAILABILITY</h3>
+          <p>We serve clients across all of Pakistan — remotely, securely, and efficiently. No office visit required. All services are delivered digitally.</p>
+          <a href="https://wa.me/923275027898" target="_blank" class="btn btn-primary">Start on WhatsApp &rarr;</a>
+        </div>
+        <div>
+          <div class="availability-list">
+            <div class="avail-item">
+              <span class="day">Monday – Friday</span>
+              <span class="time">9:00 AM – 8:00 PM</span>
+            </div>
+            <div class="avail-item">
+              <span class="day">Saturday</span>
+              <span class="time">10:00 AM – 5:00 PM</span>
+            </div>
+            <div class="avail-item">
+              <span class="day">Sunday</span>
+              <span class="time">WhatsApp Only</span>
+            </div>
+            <div class="avail-item" style="background: rgba(244,124,32,0.1); border: 1px solid rgba(244,124,32,0.2);">
+              <span class="day" style="color: var(--orange);">Tax Season</span>
+              <span class="time">Extended Hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq-section">
+    <div class="section-header reveal">
+      <span class="section-label">Quick Answers</span>
+      <div class="accent-line"></div>
+      <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+      <p>Still unsure? Here are answers to the most common questions we receive from new clients.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>I've never filed a tax return before — where do I start?</span>
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Don't worry — this is exactly the situation we handle most. Contact us via WhatsApp or phone and we'll walk you through IRIS registration, ATL inclusion, and your first return filing from scratch. We make it simple.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>I'm a freelancer earning in USD. Do I need to pay tax in Pakistan?</span>
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, but Pakistan offers significant tax incentives for IT exporters and freelancers registered with PSEB. We'll help you register, declare your income correctly, and minimize your tax liability — legally.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>How long does the tax filing process take?</span>
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>For most individual returns, the entire process — from document submission to confirmation — is completed within 24–72 hours. Business returns may take slightly longer depending on complexity.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Is my financial information kept confidential?</span>
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. Client confidentiality is a cornerstone of our practice. Your documents and financial data are never shared with any third party, and we maintain strict data security protocols throughout the engagement.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Do you work with clients outside my city?</span>
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes — we work with clients across all of Pakistan entirely online. All document sharing, communication, and delivery happens digitally, so your location is never a barrier to getting expert tax help.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="cta-inner reveal">
+      <span class="section-label">No More Delays</span>
+      <h2>Your Taxes Won't<br><span class="highlight">File Themselves.</span></h2>
+      <p>Every day you wait is a day closer to a penalty. Let TaxMasters handle your filing accurately, professionally, and on time — starting today.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/923275027898?text=Hello%20TaxMasters!%20I%20need%20help%20with%20my%20taxes." target="_blank" class="btn whatsapp-btn" style="color:white;">💬 WhatsApp Us Now</a>
+        <a href="tel:+923275027898" class="btn btn-outline">📞 Call Instead</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="TaxMasters Pakistan" />
+        <p>Pakistan's trusted tax professionals — delivering accurate, compliant, and confidential tax services for individuals, businesses, and freelancers.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how.html">How It Works</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TaxMasters Pakistan. All rights reserved.</p>
+      <p>Made with <span>♥</span> in Pakistan</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      // Open clicked if it wasn't open
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
