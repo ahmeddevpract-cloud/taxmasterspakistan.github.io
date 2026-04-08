@@ -75,14 +75,24 @@ footer {
   padding: 20px;
 }
 
-/* WhatsApp */
+/* WhatsApp (FIXED ONLY) */
 .whatsapp-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #25D366;
-  padding: 12px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
+  z-index: 999;
+}
+
+.whatsapp-icon {
+  width: 28px;
+  height: 28px;
 }
 
 /* MOBILE */
