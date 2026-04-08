@@ -14,14 +14,25 @@ body {
 
 .logo { color: orange; }
 
-.hero {
-  text-align: center;
-  padding: 120px 20px;
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
 }
 
-.hero h2 {
-  font-size: 3rem;
-  color: orange;
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
 }
 
 .section {
@@ -36,20 +47,37 @@ body {
 
 .card {
   background: #1a1a1a;
-  padding: 30px;
-  text-align: center;
+  padding: 25px;
   border-radius: 10px;
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
   background: orange;
   color: black;
+}
+
+.cta {
+  text-align: center;
+  padding: 60px;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: black;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-toggle { display:block; }
+
+  .nav-links {
+    display:none;
+    flex-direction:column;
+  }
+
+  .nav-links.active {
+    display:flex;
+  }
 }
